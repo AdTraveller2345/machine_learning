@@ -16,7 +16,7 @@ def partA(x):
     print(f"argmin x2 = {argmin_x2(x)}")
     print(f"argmin x3 = {argmin_x3(x)}")
 
-#output
+#outputß
 partA([4,3,2])
 
 
