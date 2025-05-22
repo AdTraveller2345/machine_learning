@@ -41,3 +41,6 @@ weighted_entropy = (len(left) / len(df)) * E_left + (len(right) / len(df)) * E_r
 # Information gain
 IG = E_root - weighted_entropy
 print("6b, IG:", IG)
+print("---------------------------------")
+print(f"6a, Root node entropy: {E_root:.2f}")
+print(f"6b, IG: {IG:.2f}")
