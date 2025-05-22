@@ -25,13 +25,15 @@ def coordinate_descent(f, argmin, x_t0, max_iter=25):
     x = x_t0
     
     for t in range(max_iter):
+        x_iter = x.copy()
         for i in range(len(x)):
-            x[i] = argmin[i](x)
+            x[i] = argmin[i](x_iter)
+            print(x)
     
     return x
 
 def f(x):
-    x1, x2, x3 = x
+    x1, x2, x3 = x[0],x[1],x[2]
     return np.exp(x1 - 3*x2 + 3) + np.exp(3*x2 - 2*x3 - 2) + np.exp(2*x3 - x1 + 2)
 
 x_t0 = [1, 20, 5]
