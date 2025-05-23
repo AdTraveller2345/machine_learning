@@ -83,7 +83,10 @@ for cls, word, post in zip(range(4), words, posteriors):
     print(f"p(y={cls} | x['{word}']=1) = {post:.2f}")
 
 # Check
-# print(conditional("ball", 3) * priors[3] / np.mean(X[:, vec.vocabulary_.get("ball")]))
+print(f"{conditional("electronics", 0) * priors[0] / np.mean(X[:, vec.vocabulary_.get("electronics")]):.2f}")
+print(f"{conditional("sale", 1) * priors[1] / np.mean(X[:, vec.vocabulary_.get("sale")]):.2f}")
+print(f"{conditional("games", 2) * priors[2] / np.mean(X[:, vec.vocabulary_.get("games")]):.2f}")
+print(f"{conditional("ball", 3) * priors[3] / np.mean(X[:, vec.vocabulary_.get("ball")]):.2f}")
 
 
 
