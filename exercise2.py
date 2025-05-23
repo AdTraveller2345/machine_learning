@@ -1,5 +1,6 @@
 import math
 import numpy as np
+import matplotlib.pyplot as plt
 
 def f(x):
     u, v = x
@@ -18,7 +19,7 @@ def gradient_descent(f, grad_f, eta, u0, v0, max_iter=100) -> tuple[list, list]:
     path = [(u, v)]
     values = [f((u, v))]
     
-    for t in range(1, max_iter + 1):
+    for t in range(max_iter):
         grad = grad_f((u, v))
         step_size = eta(t)
         u -= step_size * grad[0]
@@ -35,11 +36,9 @@ def eta_sqrt(t,c=1e-3) -> float:
     return c / math.sqrt(t + 1)
 
 def eta_multistep(t, milestones=[30, 80, 100], c=1e-3, eta_init=1e-3) -> float:
-    for milestone in milestones:
-        if t < milestone:
-            return eta_init
-        eta_init *= c
-    return eta_init
+    if t < milestones[0]: return eta_init
+    elif t < milestones[1]: return eta_init*c
+    else: return eta_init*c*c
 
 # Run gradient descent with different step-size strategies
 u0, v0 = 4, -5
