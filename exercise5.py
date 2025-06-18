@@ -20,9 +20,6 @@ mapping = { orig_idx: categories.index(name)
             for orig_idx,name in enumerate(train.target_names) }
 
 y = np.array([mapping[orig] for orig in train.target])
-# (Optional) override train.target and train.target_names if you want
-# train.target      = y
-# train.target_names = categories
 print(y)
 print(np.bincount(y))
 
